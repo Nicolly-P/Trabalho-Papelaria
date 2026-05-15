@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papelaria Íris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <img src="logo.png" alt="Logo da Papelaria" class="logo">
+        <div class="titulo">
+            <h1>Papelaria Íris</h1>
+        </div>
+    </div>
+
+    <section class="barra">
+        <input type="text" id="pesquisa" placeholder="Pesquisar produto...">
+        <button onclick="pesquisarProduto()">Pesquisar</button>
+    </section>
+
+</header>
+
+<main>
+
+<section class="produtos">
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/91ouP96cc9L._AC_SY300_SX300_QL70_ML2_.jpg">
+        <h2>Kit de lápis de cor</h2>
+        <p>R$ 129,90</p>
+        <br><br>
+        <button onclick="addCarrinho('Kit de lápis de cor',129.90)">Adicionar</button>
+        <button> <a href="estojo.html">Informações sobre o produto</a> </button>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71zI05fva8L._AC_UF894,1000_QL80_.jpg">
+        <h2>Caderno</h2>
+        <p>R$ 19,90</p>
+        <br><br>
+        <br><br>
+        <button onclick="addCarrinho('Caderno',19.90)">Adicionar</button>
+        <button> <a href="caderno.html">Informações sobre o produto</a> </button>
+    </div>
+
+    <div class="card">
+        <img src="https://a-static.mlcdn.com.br/420x420/bolsa-carteiro-meu-amigo-totoro-studioghibli/meuarmazem/c676ef9e5b1111eeb9934201ac185056/1c017b48e5e7a38934a21c1e087fc0ff.jpeg">
+        <h2>Mochila</h2>
+        <p>R$ 98,90</p>
+        <br><br>
+        <br><br>
+        <button onclick="addCarrinho('Mochila',98.90)">Adicionar</button>
+        <button> <a href="mochila.html">Informações sobre o produto</a> </button>
+    </div>
+
+    <div class="card">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7qukw-ljpqgrmv6nc3d5">
+        <h2>Kit de Canetas Coloridas</h2>
+        <p>R$ 24,90</p>
+        <button onclick="addCarrinho('Kit de Canetas Coloridas',24.90)">Adicionar</button>
+        <button> <a href="canetas.html">Informações sobre o produto</a> </button>
+    </div>
+
+    <div class="card">
+        <img src="https://www.papelariamaisbrasil.com.br/image/cache/data/eftr/Img_ftr_rp_1227601-1160x1160.JPG?version=20260319183340">
+        <h2>Lapiseira</h2>
+        <p>R$ 8,50</p>
+        <br><br>
+        <button onclick="addCarrinho('Lapiseira',8.50)">Adicionar</button>
+        <button> <a href="lapiseira.html">Informações sobre o produto</a> </button>
+    </div>
+
+    <div class="card">
+        <img src="https://m.magazineluiza.com.br/a-static/420x420/pasta-de-arquivo-expansivel-a4-com-5-bolsos-organizador-de-documentos-portatil/aliexpress/201519043/1d08397d3727f6f01a4a80b84ba2f748.jpeg">
+        <h2>Pasta</h2>
+        <p>R$ 12,50</p>
+        <br><br>
+        <button onclick="addCarrinho('Pasta',12.50)">Adicionar</button>
+        <button> <a href="pasta.html">Informações sobre o produto</a> </button>
+    </div>
+
+</section>
+
+<section class="carrinho">
+    <h3>🛒</h3>
+    <ul id="listaCarrinho"></ul>
+    <p id="total">Total: R$ 0</p>
+    <button onclick="limparCarrinho()">Limpar Carrinho</button>
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+</section>
+
+</main>
+
+<script>
+let carrinho = [];
+
+function addCarrinho(nome, preco){
+    carrinho.push({nome, preco});
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho(){
+    const lista = document.getElementById('listaCarrinho');
+    const totalEl = document.getElementById('total');
+
+    lista.innerHTML = '';
+
+    let total = 0;
+
+    carrinho.forEach((item, index)=>{
+        total += item.preco;
+
+        let li = document.createElement('li');
+        li.innerHTML = `${item.nome} - R$ ${item.preco.toFixed(2)}
+        <button onclick="removerItem(${index})">X</button>`;
+        lista.appendChild(li);
+    });
+
+    totalEl.innerText = 'Total: R$ ' + total.toFixed(2);
+}
+
+function removerItem(index){
+    carrinho.splice(index,1);
+    atualizarCarrinho();
+}
+
+function limparCarrinho(){
+    carrinho = [];
+    atualizarCarrinho();
+}
+
+function finalizarCompra(){
+
+    if(carrinho.length > 0){
+        alert("Sua compra foi finalizada!");
+        carrinho = [];
+        atualizarCarrinho();
+    }
+    else{
+        alert("O carrinho está vazio.");
+    }
+
+}
+
+function pesquisarProduto(){
+
+let input = document.getElementById("pesquisa").value.toLowerCase();
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    let titulo = card.querySelector("h2").innerText.toLowerCase();
+    if(titulo.includes(input)){
+        card.style.display = "block";
+    }
+    else{
+        card.style.display = "none";
+    }
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

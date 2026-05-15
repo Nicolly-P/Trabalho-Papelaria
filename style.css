@@ -1,0 +1,122 @@
+body{
+    font-family: Arial;
+    background-color: #f8f4eb;
+    padding: 20px;
+}
+
+
+h1{
+    text-align:center;
+}
+
+
+.subtitulo {
+    margin-top:30px;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+}
+
+
+.produtos{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+}
+
+
+.card{
+    background:white;
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+}
+
+
+img{
+    width:150px;
+}
+
+
+button:hover{
+    transform: scale(1.1);
+}
+
+
+img:hover{
+    transform: scale(1.1);
+}
+
+
+button{
+    padding:5px;
+    cursor:pointer;
+    margin-bottom: 0px;
+   
+}
+
+
+.carrinho{
+    margin-top:10px;
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
+
+
+h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 60px;
+}
+
+
+.barra{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+
+.barra input{
+    width: 250px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #999;
+    font-size: 16px;
+}
+
+
+.barra button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(120, 95, 180);
+    color: white;
+    font-size: 15px;
+}
+
+
+.barra button:hover{
+    background-color: rgb(92, 70, 145);
+}
+
+
+.logo-area{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.logo{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+
+.titulo{
+    margin-left: 500px;
+}

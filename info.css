@@ -1,0 +1,43 @@
+body{
+    font-family: Georgia;
+    background-color: #e7e2c6;
+    text-align: center;
+    padding: 20px;
+}
+
+img{
+    width: 300px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.class{
+    transform: scale(1.5);
+}
+
+
+.info{
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 300px;
+    text-align: center;
+}
+
+.botao{
+    display:inline-block;
+    margin-top: auto;
+    padding: 8px;
+    background: #866513;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    bottom: 8px;
+    text-align: center;
+}
+
+.botao:hover{
+    background: #a07b1f;
+    text-align: center;
+}
